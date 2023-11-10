@@ -1,9 +1,10 @@
 import AuthContainer from '../molecules/authContainer';
 import InputBox from '../molecules/inputBox';
+import { Link } from 'react-router-dom';
 
 const SignUp = () => {
   return (
-    <AuthContainer title="Sign up">
+    <AuthContainer title="Create Account">
       <form>
         <div className='flex justify-between'>
           <div className='w-[40%]'>
@@ -30,13 +31,13 @@ const SignUp = () => {
 
         <div className='mt-10'>
           <button className='text-lg bg-primary text-gray-100 p-4 w-full rounded-full tracking-wide font-semibold font-display focus:outline-none focus:shadow-outline hover:bg-indigo-500 shadow-lg'>
-            Sign Up
+            Create Account
           </button>
         </div>
       </form>
-      <div className='mt-12 text-[1rem] font-display font-semibold text-gray-700 text-center'>
+      <div className='mt-8 text-[1rem] font-display font-semibold text-gray-700 text-center'>
         Already have an account ?{' '}
-        <a className='cursor-pointer text-indigo-600 hover:text-indigo-800'>Login</a>
+        <Link className='cursor-pointer text-indigo-600 hover:text-indigo-800' to='/log-in'>Login</Link>
       </div>
     </AuthContainer>
   )
