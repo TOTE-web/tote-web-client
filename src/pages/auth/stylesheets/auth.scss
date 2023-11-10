@@ -1,0 +1,19 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+.auth-page {
+  @apply lg:flex w-screen h-screen;
+
+  .auth-header {
+    @apply py-12 bg-indigo-100 lg:bg-white flex justify-center lg:justify-start lg:px-12;
+
+    .auth-header-title {
+      @apply text-2xl text-indigo-800 tracking-wide ml-2 font-semibold;
+    }
+  }
+
+  .auth-form-container {
+    @apply lg:w-1/2 xl:max-w-screen-lg bg-white h-screen overflow-x-hidden overflow-y-auto;
+  }
+}

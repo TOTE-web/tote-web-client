@@ -1,5 +1,5 @@
-export const AuthHeadLogo = () => (
-  <svg width='50' viewBox='0 0 141 235'>
+export const AuthHeadLogo = ({ className }) => (
+  <svg width='50' className={className} viewBox='0 0 141 235'>
     <rect width='141' height='235' />
     <rect width='2724' height='945' transform='translate(-2255 -355)' />
     <rect width='141' height='235' fill='url(#pattern0)' />
@@ -17,14 +17,13 @@ export const AuthHeadLogo = () => (
   </svg>
 )
 
-export const AuthSidePage = () => (
+export const AuthSideLogo = () => (
   <svg
-    className='w-5/6 mx-auto'
+    className='w-full mx-auto'
     id='f080dbb7-9b2b-439b-a118-60b91c514f72'
     data-name='Layer 1'
     viewBox='0 0 528.71721 699.76785'
   >
-    <title>Login</title>
     <rect y='17.06342' width='444' height='657' fill='#535461' />
     <polygon points='323 691.063 0 674.063 0 17.063 323 0.063 323 691.063' fill='#7f9cf5' />
     <circle cx='296' cy='377.06342' r='4' fill='#535461' />
