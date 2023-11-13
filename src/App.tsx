@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { Login, SignUp, ForgotPassword } from './pages/auth'
+import InvalidPage from './pages/invalidPage'
 
 const App = () => {
   return (
@@ -8,7 +9,7 @@ const App = () => {
         <Route path="/log-in" element={<Login />} />
         <Route path="/create-account" element={<SignUp />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
-        <Route path="/*" element={<h1>404 No page found</h1>} />
+        <Route path="/*" element={<InvalidPage />} />
       </Routes>
     </BrowserRouter>
   )
