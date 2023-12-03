@@ -1,0 +1,33 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+.sidebar-container {
+  @apply flex flex-col w-80 bg-white dark:bg-black max-h-full min-h-full border-r;
+
+  .sidebar-card {
+    @apply overflow-y-auto overflow-x-hidden flex-grow;
+
+    .sidebar-list {
+      @apply flex flex-col py-4 space-y-1;
+
+      .sidebar-list-item {
+        @apply relative flex flex-row items-center h-11 focus:outline-none hover:bg-gray-50 text-gray-600 hover:text-gray-800 border-l-4 border-transparent hover:border-primary pr-6;
+
+        &.active {
+          @apply text-white bg-primary;
+          .sidebar-list-icon svg,
+          .sidebar-list-icon svg path {
+            @apply fill-white;
+          }
+        }
+        .sidebar-list-icon {
+          @apply inline-flex justify-center items-center ml-4;
+        }
+        .sidebar-list-text {
+          @apply ml-2 text-sm tracking-wide truncate;
+        }
+      }
+    }
+  }
+}

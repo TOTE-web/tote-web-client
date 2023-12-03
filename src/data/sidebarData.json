@@ -1,0 +1,77 @@
+{
+  "listDetails": {
+    "sections": [
+      "MENU",
+      "RECRUITMENT",
+      "ORGANIZATION"
+    ],
+    "lists": {
+      "MENU": [
+        {
+          "text": "Dashboard",
+          "iconName": "dashboardIcon",
+          "path": "/"
+        },
+        {
+          "text": "Messages",
+          "iconName": "messagesIcon",
+          "path": "/messages"
+        },
+        {
+          "text": "Calendar",
+          "iconName": "calenderIcon",
+          "path": "/calendar"
+        }
+      ],
+      "RECRUITMENT": [
+        {
+          "text": "Jobs",
+          "iconName": "jobsIcon",
+          "path": "/jobs"
+        },
+        {
+          "text": "Candidates",
+          "iconName": "candidatesIcon",
+          "path": "/candidates"
+        },
+        {
+          "text": "Leave",
+          "iconName": "leaveIcon",
+          "path": "/leave"
+        },
+        {
+          "text": "Review",
+          "iconName": "reviewIcon",
+          "path": "/review"
+        }
+      ],
+      "ORGANIZATION": [
+        {
+          "text": "Company",
+          "iconName": "companyIcon",
+          "path": "/company"
+        },
+        {
+          "text": "Employees",
+          "iconName": "employeesIcon",
+          "path": "/employees"
+        },
+        {
+          "text": "Report",
+          "iconName": "reportIcon",
+          "path": "/report"
+        },
+        {
+          "text": "Settings",
+          "iconName": "settingsIcon",
+          "path": "/settings"
+        },
+        {
+          "text": "Profile",
+          "iconName": "profileIcon",
+          "path": "/profile"
+        }
+      ]
+    }
+  }
+}
