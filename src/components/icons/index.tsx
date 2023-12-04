@@ -6,13 +6,13 @@ export const CompanyLogo = ({ className }) => (
 )
 
 export const SideBarToggleIcon = ({ className, onClick }) => (
-  <svg className={className} onClick={onClick} fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+  <svg className={className} onClick={onClick} viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
     <path fillRule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h6a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clipRule="evenodd"></path>
   </svg>
 );
 
 export const CrossIcon = ({ className, onClick }) => (
-  <svg className={className} onClick={onClick} fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+  <svg className={className} onClick={onClick} viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
     <path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd"></path>
   </svg>
 )
@@ -30,8 +30,8 @@ export const HelpIcon = ({ className, pathClassName }) => (
   </svg>
 );
 
-export const BellIcon = ({ className, pathClassName }) => (
-  <svg className={className} viewBox="0 0 14 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+export const BellIcon = ({ className, pathClassName, onClick }) => (
+  <svg className={className} viewBox="0 0 14 15" onClick={onClick} fill="none" xmlns="http://www.w3.org/2000/svg">
     <path d="M4.01405 13.6815C4.34041 14.0942 4.75628 14.4273 5.23026 14.6557C5.70423 14.8841 6.22391 15.0019 6.75005 15C7.27618 15.0019 7.79586 14.8841 8.26984 14.6557C8.74381 14.4273 9.15968 14.0942 9.48605 13.6815C7.67035 13.9276 5.82974 13.9276 4.01405 13.6815ZM11.8125 5.25V5.778C11.8125 6.41175 11.9925 7.03125 12.3315 7.5585L13.1625 8.85075C13.9208 10.0312 13.3418 11.6355 12.0225 12.0082C8.57536 12.9847 4.92473 12.9847 1.47755 12.0082C0.158296 11.6355 -0.420703 10.0312 0.337547 8.85075L1.16855 7.5585C1.50873 7.02702 1.68913 6.40903 1.6883 5.778V5.25C1.6883 2.3505 3.9548 0 6.75005 0C9.5453 0 11.8125 2.3505 11.8125 5.25Z" className={pathClassName} />
   </svg>
 );

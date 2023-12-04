@@ -8,7 +8,7 @@
       @apply flex justify-center items-center w-auto h-auto mt-1 cursor-pointer;
 
       .sidebar-toggler {
-        @apply w-7 h-7 block align-middle;
+        @apply w-7 h-7 block align-middle fill-gray-400 dark:fill-gray-300;
 
         &.opened {
           @apply md:hidden;
@@ -16,7 +16,7 @@
       }
 
       .cross-icon {
-        @apply w-7 h-6 align-middle hidden;
+        @apply w-7 h-6 align-middle hidden fill-gray-400 dark:fill-gray-300;
 
         &.opened {
           @apply md:inline-block;

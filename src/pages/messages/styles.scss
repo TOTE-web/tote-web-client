@@ -1,0 +1,19 @@
+.messages-page {
+  @apply flex flex-col w-full h-full overflow-auto;
+
+  .messages-top-section {
+    @apply w-full flex justify-between items-center border-b border-gray-200 dark:border-gray-400 py-4;
+
+    .messages-top-side1 {
+      @apply flex items-center;
+
+      .messages-top-checkbox {
+        @apply mr-2 ml-3 grid place-items-center;
+
+        input {
+          @apply w-4 h-4 rounded-md border-black dark:border-white cursor-pointer;
+        }
+      }
+    }
+  }
+}
