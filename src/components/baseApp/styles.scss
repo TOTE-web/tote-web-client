@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.page-container {
+  @apply w-full;
+
+  .main-container {
+    @apply w-full min-h-screen max-h-screen flex overflow-hidden;
+
+    .side-page-container {
+      @apply w-full max-h-full bg-white dark:bg-black;
+    }
+  }
+}

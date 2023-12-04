@@ -1,0 +1,39 @@
+.header-container {
+  @apply flex justify-between items-center py-3 px-4 bg-white dark:bg-black text-black dark:text-gray-300 border-b sticky top-0 right-0 left-0 z-50 shadow;
+
+  .logo-container {
+    @apply flex gap-8 justify-center items-center;
+
+    .sidebar-icons {
+      @apply flex justify-center items-center w-auto h-auto mt-1 cursor-pointer;
+
+      .sidebar-toggler {
+        @apply w-7 h-7 block align-middle;
+
+        &.opened {
+          @apply md:hidden;
+        }
+      }
+
+      .cross-icon {
+        @apply w-7 h-6 align-middle hidden;
+
+        &.opened {
+          @apply md:inline-block;
+        }
+      }
+    }
+
+    .company-logo-container {
+      @apply flex justify-center items-center gap-2 cursor-pointer;
+
+      .company-logo {
+        @apply w-6;
+      }
+
+      .comapny-name {
+        @apply font-bold text-xl mt-1;
+      }
+    }
+  }
+}

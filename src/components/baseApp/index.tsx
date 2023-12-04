@@ -1,13 +1,14 @@
 import Header from '../header'
 import SideBar from '../sidebar'
+import './styles.scss';
 
 const BaseApp = ({ component }) => {
   return (
-    <div className='w-full'>
+    <div className='page-container'>
       <Header />
-      <div className="w-full min-h-screen max-h-screen flex overflow-hidden">
+      <div className="main-container">
         <SideBar />
-        <div className="w-full max-h-full">
+        <div className="side-page-container">
           {component}
         </div>
       </div>

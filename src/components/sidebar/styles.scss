@@ -3,7 +3,7 @@
 @import 'tailwindcss/utilities';
 
 .sidebar-container {
-  @apply flex flex-col w-80 bg-white dark:bg-black max-h-full min-h-full border-r;
+  @apply flex flex-col min-w-[12rem] bg-white dark:bg-black max-h-full min-h-full border-r shadow;
 
   .sidebar-card {
     @apply overflow-y-auto overflow-x-hidden flex-grow;
@@ -12,10 +12,12 @@
       @apply flex flex-col py-4 space-y-1;
 
       .sidebar-list-item {
-        @apply relative flex flex-row items-center h-11 focus:outline-none hover:bg-gray-50 text-gray-600 hover:text-gray-800 border-l-4 border-transparent hover:border-primary pr-6;
+        @apply relative flex flex-row items-center h-11 focus:outline-none
+        text-gray-600 dark:text-gray-300 dark:hover:text-gray-200 hover:text-gray-800 
+        border-l-4 border-transparent hover:border-primary pr-6;
 
         &.active {
-          @apply text-white bg-primary;
+          @apply text-white bg-primary hover:bg-primary;
           .sidebar-list-icon svg,
           .sidebar-list-icon svg path {
             @apply fill-white;
@@ -27,6 +29,38 @@
         .sidebar-list-text {
           @apply ml-2 text-sm tracking-wide truncate;
         }
+      }
+
+      .title-section {
+        @apply px-5;
+
+        .title-wrapper {
+          @apply flex flex-row items-center h-8;
+
+          .title {
+            @apply text-sm font-semibold tracking-wide text-black dark:text-white;
+          }
+        }
+      }
+    }
+  }
+
+  &.opened {
+    @apply min-w-[4rem];
+
+    .sidebar-card .sidebar-list {
+      .sidebar-list-item {
+        @apply justify-center;
+
+        .sidebar-list-icon {
+          @apply ml-0;
+        }
+        .sidebar-list-text {
+          @apply hidden;
+        }
+      }
+      .title-section {
+        @apply hidden;
       }
     }
   }

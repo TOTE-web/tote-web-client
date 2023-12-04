@@ -12,6 +12,10 @@ export default {
         red: '#FF5630',
         green: '#37CB87',
       },
+      screens: {
+        sm: { max: '639px' },
+        md: { max: '767px' },
+      },
     },
   },
   plugins: [],

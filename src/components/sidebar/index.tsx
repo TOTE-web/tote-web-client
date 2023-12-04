@@ -2,11 +2,13 @@ import { Link, useLocation } from 'react-router-dom';
 import './styles.scss';
 import { AllIcons } from './icons';
 import { listDetails } from '../../data/sidebarData.json';
+import { useSelector } from 'react-redux';
+import { SelectorState } from '../../redux/interfaces';
 
 const SectionTitle = ({ title }) => (
-  <li className="px-5">
-    <div className="flex flex-row items-center h-8">
-      <div className="text-base font-semibold tracking-wide text-black">{title}</div>
+  <li className="title-section">
+    <div className="title-wrapper">
+      <div className="title">{title}</div>
     </div>
   </li>
 );
@@ -31,9 +33,10 @@ const isPathsAreSame = (path: string = '', toPath: string = '') => {
 const SideBar = () => {
   const { sections, lists } = listDetails;
   const { pathname } = useLocation();
+  const sidebar = useSelector((state: SelectorState)=> state?.sidebar);
 
   return (
-    <div className="sidebar-container">
+    <div className={`sidebar-container ${sidebar.isOpened ? 'opened': ''}`}>
       <div className="sidebar-card">
         <ul className="sidebar-list">
           {sections.map((itemName)=> (
