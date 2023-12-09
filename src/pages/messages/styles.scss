@@ -1,5 +1,5 @@
 .messages-page {
-  @apply flex flex-col w-full h-full overflow-auto;
+  @apply flex flex-col w-full h-full overflow-auto relative;
 
   .messages-top-section {
     @apply w-full flex justify-between items-center border-b border-gray-200 dark:border-gray-400 py-4;
@@ -14,6 +14,23 @@
           @apply w-4 h-4 rounded-md border-black dark:border-white cursor-pointer;
         }
       }
+    }
+  }
+
+  .messages-main-section {
+    @apply min-w-full py-4 px-2 text-black dark:text-white text-sm;
+  }
+
+  .messages-bottom-section {
+    @apply w-full py-4 px-2 text-gray-400 dark:text-gray-300 flex md:flex-col justify-between md:justify-center md:gap-2 items-center 
+    text-sm shadow-sm border-t border-gray-400 dark:border-gray-300 absolute bottom-0 left-0 right-0;
+
+    .progress-section {
+      @apply w-max md:w-full flex flex-col gap-1;
+    }
+
+    .activity-section {
+      @apply flex flex-row justify-center items-center;
     }
   }
 }
