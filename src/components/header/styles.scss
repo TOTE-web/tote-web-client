@@ -1,5 +1,5 @@
 .header-container {
-  @apply flex justify-between items-center py-3 px-4 bg-white dark:bg-black text-black dark:text-gray-300 border-b sticky top-0 right-0 left-0 z-50 shadow;
+  @apply flex justify-between items-center py-3 px-4 bg-background text-black dark:text-gray-300 border-b sticky top-0 right-0 left-0 z-50 shadow;
 
   .logo-container {
     @apply flex gap-8 justify-center items-center;

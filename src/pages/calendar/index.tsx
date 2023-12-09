@@ -1,7 +1,7 @@
 const Calendar = () => {
   return (
     <div className="container mx-auto">
-      <div className="wrapper bg-white shadow w-full ">
+      <div className="wrapper bg-card shadow w-full ">
         <div className="header flex justify-between border-b p-2">
           <span className="text-lg font-bold text-black">
             2020 July

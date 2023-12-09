@@ -1,10 +1,11 @@
+import Checkbox from '../../../components/ui/checkbox';
 
 const TopSection = () => {
   return (
     <div className="messages-top-section">
       <div className="messages-top-side1">
         <div className="messages-top-checkbox">
-          <input type="checkbox" />
+          <Checkbox id='' className="w-4 h-4 rounded border-primary cursor-pointer" />
         </div>
         <div className="flex justify-center items-center gap-3 border-x border-gray-200 dark:border-gray-400 px-2">
           <div className="cursor-pointer">
