@@ -3,10 +3,10 @@
 @import 'tailwindcss/utilities';
 
 .sidebar-container {
-  @apply flex flex-col min-w-[12rem] bg-background max-h-full min-h-full border-r shadow;
+  @apply flex flex-col bg-background max-h-screen min-h-screen border-r shadow overflow-y-auto overflow-x-hidden;
 
   .sidebar-card {
-    @apply overflow-y-auto overflow-x-hidden flex-grow;
+    @apply flex-grow;
 
     .sidebar-list {
       @apply flex flex-col py-4 space-y-1;
@@ -14,7 +14,7 @@
       .sidebar-list-item {
         @apply relative flex flex-row items-center h-11 focus:outline-none
         text-gray-600 dark:text-gray-300 dark:hover:text-gray-200 hover:text-gray-800 
-        border-l-4 border-transparent hover:border-primary pr-6;
+        border-l-4 border-transparent hover:border-primary pr-6 md:justify-center;
 
         &.active {
           @apply text-white bg-primary hover:bg-primary;
@@ -24,15 +24,15 @@
           }
         }
         .sidebar-list-icon {
-          @apply inline-flex justify-center items-center ml-4;
+          @apply inline-flex justify-center items-center ml-4 md:ml-0;
         }
         .sidebar-list-text {
-          @apply ml-2 text-sm tracking-wide truncate;
+          @apply ml-2 text-sm tracking-wide truncate md:hidden;
         }
       }
 
       .title-section {
-        @apply px-5;
+        @apply px-5 md:hidden;
 
         .title-wrapper {
           @apply flex flex-row items-center h-8;
@@ -46,7 +46,7 @@
   }
 
   &.opened {
-    @apply min-w-[4rem];
+    @apply md:translate-x-[-100%];
 
     .sidebar-card .sidebar-list {
       .sidebar-list-item {

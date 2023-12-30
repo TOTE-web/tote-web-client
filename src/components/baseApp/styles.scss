@@ -6,10 +6,14 @@
   @apply w-full;
 
   .main-container {
-    @apply w-full min-h-screen max-h-screen flex overflow-hidden;
+    @apply w-full grid grid-cols-[12%_88%];
+
+    &.consize {
+      @apply grid-cols-[5%_95%] md:grid-cols-[0%_100%];
+    }
 
     .side-page-container {
-      @apply w-full max-h-full bg-background;
+      @apply w-full bg-background max-h-screen overflow-auto;
     }
   }
 }
