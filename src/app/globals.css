@@ -1,7 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
- 
+
 
 @layer base {
   :root {
@@ -49,11 +49,24 @@
     --ring: 263.4 70% 50.4%;
   }
 }
- 
+
 @layer base {
   * {
     @apply border-border;
   }
+
+  *::-webkit-scrollbar {
+    @apply cursor-pointer w-2;
+  }
+
+  *::-webkit-scrollbar-track {
+    @apply bg-transparent cursor-pointer;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    @apply cursor-pointer bg-secondary rounded-full;
+  }
+
   body {
     @apply bg-background text-foreground;
   }
