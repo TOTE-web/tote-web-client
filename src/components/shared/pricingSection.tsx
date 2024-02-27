@@ -12,7 +12,7 @@ type PriceCardTypes = {
   features: string[],
   btnVariant: string,
   badge?: string,
-  shadow?: string
+  highlightClass?: string
 }
 
 const data = [
@@ -35,7 +35,7 @@ const data = [
     description: 'Ideal for startups or small teams.',
     btnVariant: 'default',
     badge: 'Popular',
-    shadow: 'shadow-2xl',
+    highlightClass: 'shadow-2xl border-primary border-2',
     features: [
       'Up to 500 employees.',
       'Full access to all core features, including employee management, leave tracking, performance evaluation, and document storage.',
@@ -60,19 +60,21 @@ const data = [
   },
 ]
 
-const PriceCard = ({ topText, title, description, features, btnVariant, badge, shadow } : PriceCardTypes) => {
+const PriceCard = ({ topText, title, description, features, btnVariant, badge, highlightClass } : PriceCardTypes) => {
   return (
-    <Card className={`py-6 px-3 flex flex-col gap-3 max-w-md shadow-secondary ${shadow || 'shadow-md'} rounded-xl h-full`}>
+    <Card className={`py-6 px-4 flex flex-col justify-between gap-3 max-w-md shadow-black/10 ${highlightClass || 'shadow-md'} rounded-xl h-full`}>
       {badge && <Badge variant="default" className='w-max self-end text-md'>{badge}</Badge>}
-      <p className='text-lg'>{topText}</p>
-      <h1 className='text-3xl font-semibold'>{title}</h1>
-      <p className='text-base text-gray-400'>{description}</p>
+      <div>
+        <p className='text-lg'>{topText}</p>
+        <h1 className='text-3xl font-semibold'>{title}</h1>
+        <p className='text-base text-gray-400'>{description}</p>
+      </div>
       <Button variant={btnVariant || 'default'} className='my-4'>Get Started</Button>
-      <div className='flex flex-col gap-3'>
+      <div className='flex flex-col gap-3 text-gray-500'>
         {features.map((item, idx)=> (
           <div key={idx} className='flex gap-3 items-center'>
-            <Image src="/assets/home/check.svg" width={1000} height={0} alt='tick' className='w-4 h-4 fill-green-500 self-center' />
-            <span className='text-md'>{item}</span>
+            <Image src="/assets/home/check.svg" width={1000} height={0} alt='tick' className='w-3 h-3 self-center' />
+            <span className='text-base'>{item}</span>
           </div>
         ))}
       </div>

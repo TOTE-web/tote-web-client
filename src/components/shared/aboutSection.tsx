@@ -10,8 +10,8 @@ const AboutSection = () => {
       </div>
       <div className="items-center py-4 px-4 mx-auto max-w-screen-xl lg:grid lg:grid-cols-2 lg:py-16 lg:px-6 lg:gap-8">
         <div className="font-light text-gray-500 sm:text-lg dark:text-gray-400">
-          <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">Empowering Your HR Journey</h2>
-          <p className="mb-4" >Our application revolutionizes human resource management by offering a comprehensive suite of tools designed to streamline operations and empower your team. From simplifying employee management to automating payroll, leave tracking, and performance evaluation, we provide the solutions you need to elevate your workforce management to the next level. With intuitive features and user-friendly design, we{'\''}re committed to helping you drive growth and success in your organization.</p>
+          <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-gradient dark:text-white">Empowering Your HR Journey</h2>
+          <p className="mb-4 text-gray-500" >Our application revolutionizes human resource management by offering a comprehensive suite of tools designed to streamline operations and empower your team. From simplifying employee management to automating payroll, leave tracking, and performance evaluation, we provide the solutions you need to elevate your workforce management to the next level. With intuitive features and user-friendly design, we{'\''}re committed to helping you drive growth and success in your organization.</p>
         </div>
         <div className="hidden lg:mt-0 lg:flex">
           <Image src='/assets/home/aboutSide.jpg' className='w-full' width={500} height={0} alt="about-side" />

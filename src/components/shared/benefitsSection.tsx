@@ -58,8 +58,8 @@ const BenefitsSection = () => {
             <div className='bg-primary w-max flex justify-center items-center mb-2 p-4 rounded-full'>
               <Image src={`/assets/home/${item.iconPath}`} width={100} height={0} alt='operations' className='w-8 h-8 invert' />
             </div>
-            <CardTitle>{item.title}</CardTitle>
-            <CardDescription>{item.description}</CardDescription>
+            <CardTitle className='text-gradient'>{item.title}</CardTitle>
+            <CardDescription className='text-gray-500'>{item.description}</CardDescription>
           </Card>
         ))}
       </div>

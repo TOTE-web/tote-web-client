@@ -40,12 +40,12 @@ const ContactSection = () => {
         <h1 className='text-5xl my-4 text-center font-bold'>Contact</h1>
         <hr className='w-10/12 mx-auto border-red-400 border-b-2 rounded-full' />
       </div>
-      <p className='text-center text-base text-gray-400 mt-4'>Want to contact us? Choose an option below and well be happy to show you how we<br/> can transform companies web experience.</p>
+      <p className='text-center text-base text-gray-500 mt-4'>Want to contact us? Choose an option below and well be happy to show you how we<br/> can transform companies web experience.</p>
       <div className="py-4 px-4 mx-auto max-w-screen-xl grid grid-cols-1 lg:grid-cols-2 lg:py-16 lg:px-6 lg:gap-8">
         <div>
           <h1 className='text-lg font-bold mb-4'>Contact Us</h1>
-          <p className='text-base font-light'>Have something to say? We are here to help. Fill up<br/> the form or send email or call phone.</p>
-          <div className='mt-6 flex flex-col gap-2'>
+          <p className='text-base font-light text-gray-500'>Have something to say? We are here to help. Fill up<br/> the form or send email or call phone.</p>
+          <div className='mt-6 flex flex-col gap-2 text-gray-500'>
             <div className='flex gap-4'>
               <Image src="/assets/home/street.svg" width={1000} height={0} alt='street' className='w-4 h-4' />
               <span>14 temporary street, Unknown city</span>

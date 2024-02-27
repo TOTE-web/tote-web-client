@@ -70,4 +70,8 @@
   body {
     @apply bg-background text-foreground;
   }
+
+  .text-gradient {
+    @apply bg-gradient-to-r from-blue-600 via-green-500 to-indigo-400 text-transparent bg-clip-text inline-block
+  }
 }
