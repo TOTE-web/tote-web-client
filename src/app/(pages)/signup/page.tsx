@@ -15,6 +15,8 @@ import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import { z } from "zod"
 import Link from "next/link";
+import axios from 'axios';
+import { useRouter } from "next/navigation";
 
 const formSchema = z.object({
   username: z.string().min(2, {
@@ -32,6 +34,7 @@ const formSchema = z.object({
 })
 
 const SignUp = () => {
+  const router = useRouter();
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -43,8 +46,17 @@ const SignUp = () => {
   })
  
   
-  const onSubmit = (values: z.infer<typeof formSchema>) => {
-    
+  const onSubmit = async (values: z.infer<typeof formSchema>) => {
+    if (values.password !== values.confirmPassword) {
+      console.log('Confirm password not matching!');
+      return;
+    }
+    try {
+      await axios.post('/api/auth/signup', values);
+      router.push('/login');
+    } catch (error) {
+      console.log(error);
+    }
   }
   return (
     <AuthComponent title="Create new account">

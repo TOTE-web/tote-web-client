@@ -4,10 +4,22 @@ import { Button } from '../ui/button'
 import Link from 'next/link'
 import Image from 'next/image'
 import { Card } from '../ui/card'
+import axios from 'axios';
+import { useRouter } from 'next/navigation'
 
 const Header = () => {
+  const router = useRouter();
   const [isPopUpOpened, setIsPopUpOpened] = useState(false);
   const isLoggedIn = true;
+
+  const handleLogout = async () => {
+    try {
+      await axios.get('/api/auth/logout');
+      router.push('/login');
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
   return (
     <header className="flex justify-between items-center bg-white z-10 p-4 px-16 shadow-black/10 shadow-lg sticky top-0">
@@ -27,7 +39,7 @@ const Header = () => {
         </div>
         <Card className={`absolute top-10 w-max flex flex-col gap-4 py-4 px-2 shadow-black/10 shadow-xl border-2 border-b-0 border-l-0 border-r-0 ${!isPopUpOpened && 'hidden' }`}>
           <Link href="/dashboard" className='cursor-pointer text-base text-primary hover:underline'>Go to dashboard</Link>
-          <div className='text-base text-destructive cursor-pointer'>Logout</div>
+          <div className='text-base text-destructive cursor-pointer' onClick={handleLogout}>Logout</div>
         </Card>
       </div>
       <Link href="/login" className={`${isLoggedIn && 'hidden'}`}>

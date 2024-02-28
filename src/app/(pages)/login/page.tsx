@@ -15,6 +15,8 @@ import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import { z } from "zod"
 import Link from "next/link";
+import axios from 'axios';
+import { useRouter } from "next/navigation";
 
 const formSchema = z.object({
   email: z.string().min(2, {
@@ -26,6 +28,7 @@ const formSchema = z.object({
 })
 
 const Login = () => {
+  const router = useRouter();
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -34,8 +37,13 @@ const Login = () => {
     },
   })
  
-  const onSubmit = (values: z.infer<typeof formSchema>) => {
-    
+  const onSubmit = async (values: z.infer<typeof formSchema>) => {
+    try {
+      await axios.post('/api/auth/login', values);
+      router.push('/dashboard');
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   return (
