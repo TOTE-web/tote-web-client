@@ -1,6 +1,6 @@
 "use client"
 import AuthComponent from "@/components/shared/authComponent";
-import { CardDescription, CardHeader } from "@/components/ui/card";
+import { CardDescription } from "@/components/ui/card";
 import { Button } from "@/components/ui/button"
 import {
   Form,
@@ -49,7 +49,7 @@ const SignUp = () => {
   return (
     <AuthComponent title="Create new account">
       <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="py-8 max-w-[30rem] mx-auto">
+      <form onSubmit={form.handleSubmit(onSubmit)} className="py-8 w-10/12 mx-auto">
           <FormField
             control={form.control}
             name="username"
@@ -102,8 +102,8 @@ const SignUp = () => {
               </FormItem>
             )}
           />
-          <Button type="submit" className="w-full my-4 bg-gradient-to-r from-red-200 via-red-400 to-red-600">Create Account</Button>
-          <CardDescription className="text-black">
+          <Button type="submit" className="w-full text-xl py-6 my-4 bg-primary transition-all hover:rounded-full">Create Account</Button>
+          <CardDescription className="text-black text-xs lg:text-base text-center">
             Already have an account ? <Link className="text-primary" href={'/login'}>Login</Link>
           </CardDescription>
         </form>

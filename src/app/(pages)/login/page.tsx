@@ -1,6 +1,6 @@
 "use client"
 import AuthComponent from "@/components/shared/authComponent";
-import { CardDescription, CardHeader } from "@/components/ui/card";
+import { CardDescription } from "@/components/ui/card";
 import { Button } from "@/components/ui/button"
 import {
   Form,
@@ -41,7 +41,7 @@ const Login = () => {
   return (
     <AuthComponent title="Welcome back!">
       <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="py-8 max-w-[30rem] mx-auto">
+        <form onSubmit={form.handleSubmit(onSubmit)} className="py-8 w-10/12 mx-auto">
           <FormField
             control={form.control}
             name="email"
@@ -68,12 +68,12 @@ const Login = () => {
               </FormItem>
             )}
           />
-          <Button type="submit" className="w-full my-4 bg-gradient-to-r from-red-200 via-red-400 to-red-600">Login</Button>
+          <Button type="submit" className="w-full text-xl py-6 my-4 bg-primary transition-all hover:rounded-full">Login</Button>
           <div className="flex justify-between">
-            <CardDescription className="text-black">
+            <CardDescription className="text-black text-xs lg:text-base">
               Don{"'"}t have an account ? <Link className="text-primary" href={'/signup'}>Signup</Link>
             </CardDescription>
-            <CardDescription className="text-black">
+            <CardDescription className="text-black text-xs lg:text-base">
               <Link className="text-primary" href={'/forgotPassword'}>Forgot password?</Link>
             </CardDescription>
           </div>
