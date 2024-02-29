@@ -1,5 +1,5 @@
 "use client"
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Button } from '../ui/button'
 import Link from 'next/link'
 import Image from 'next/image'
@@ -10,7 +10,16 @@ import { useRouter } from 'next/navigation'
 const Header = () => {
   const router = useRouter();
   const [isPopUpOpened, setIsPopUpOpened] = useState(false);
+  const [isFixedPosition, setIsFixedPosition] = useState(false);
   const isLoggedIn = true;
+
+  useEffect(() => {
+    const toggleVisibility = () => {
+      window.scrollY >= 90 ? setIsFixedPosition(true) : setIsFixedPosition(false)
+    }
+    window.addEventListener("scroll", toggleVisibility, true);
+    return window.removeEventListener("scroll", toggleVisibility);
+  }, []);
 
   const handleLogout = async () => {
     try {
@@ -22,7 +31,7 @@ const Header = () => {
   }
 
   return (
-    <header className="flex justify-between items-center bg-white z-10 p-4 px-16 shadow-black/10 shadow-lg sticky top-0">
+    <header className={`flex justify-between items-center bg-white z-10 p-4 px-16 shadow-black/10 shadow-lg ${isFixedPosition && 'fixed'} top-0 left-0 right-0`}>
       <nav className="flex gap-4">
         {/* Logo with text */}
         <ul className="flex gap-4 text-xl text-gray-600">
