@@ -29,6 +29,9 @@ export const config = {
   matcher: [
     '/',
     '/dashboard',
+    '/dashboard/:id*',
+    '/employee-management',
+    '/employee-management/:id*',
     '/login',
     '/signup'
   ]
