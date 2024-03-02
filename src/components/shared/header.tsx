@@ -6,12 +6,16 @@ import Image from 'next/image'
 import { Card } from '../ui/card'
 import axios from 'axios';
 import { useRouter } from 'next/navigation'
+import { useCookies } from 'next-client-cookies'
+import { useToast } from '../ui/use-toast'
 
 const Header = () => {
+  const cookies = useCookies();
   const router = useRouter();
+  const { toast } = useToast();
   const [isPopUpOpened, setIsPopUpOpened] = useState(false);
   const [isFixedPosition, setIsFixedPosition] = useState(false);
-  const isLoggedIn = true;
+  const isLoggedIn = !!cookies.get('token');
 
   useEffect(() => {
     const toggleVisibility = () => {
@@ -24,9 +28,10 @@ const Header = () => {
   const handleLogout = async () => {
     try {
       await axios.get('/api/auth/logout');
+      toast({ title: "Successfully logged out!!" });
       router.push('/login');
-    } catch (error) {
-      console.log(error);
+    } catch (error: any) {
+      toast({ title: error?.message || 'Unable to logout!!', variant: 'destructive' });
     }
   }
 

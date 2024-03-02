@@ -17,6 +17,8 @@ import { z } from "zod"
 import Link from "next/link";
 import axios from 'axios';
 import { useRouter } from "next/navigation";
+import { useToast } from "@/components/ui/use-toast";
+import { useState } from "react";
 
 const formSchema = z.object({
   username: z.string().min(2, {
@@ -34,6 +36,8 @@ const formSchema = z.object({
 })
 
 const SignUp = () => {
+  const { toast } = useToast();
+  const [state, setState] = useState({ isLoading: false });
   const router = useRouter();
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -48,14 +52,18 @@ const SignUp = () => {
   
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     if (values.password !== values.confirmPassword) {
-      console.log('Confirm password not matching!');
+      toast({ title: 'Confirm password not matching!', variant: 'destructive' });
       return;
     }
     try {
+      setState(prev => ({ ...prev, isLoading: true }));
       await axios.post('/api/auth/signup', values);
+      toast({ title: 'Successfully! created account', description: 'Please do login!' });
       router.push('/login');
-    } catch (error) {
-      console.log(error);
+    } catch (error: any) {
+      toast({ title: error.message || 'Unable to create account!', variant: 'destructive' });
+    } finally {
+      setState(prev => ({ ...prev, isLoading: false }));
     }
   }
   return (
@@ -114,7 +122,9 @@ const SignUp = () => {
               </FormItem>
             )}
           />
-          <Button type="submit" className="w-full text-xl py-6 my-4 bg-primary transition-all hover:rounded-full">Create Account</Button>
+          <Button type="submit" disabled={state.isLoading} className={` ${state.isLoading && 'cursor-not-allowed opacity-65'} w-full text-xl py-6 my-4 bg-primary transition-all hover:rounded-full`}>
+            {state.isLoading ? 'Logging in...' :  'Create Account'}
+          </Button>
           <CardDescription className="text-black text-xs lg:text-base text-center">
             Already have an account ? <Link className="text-primary" href={'/login'}>Login</Link>
           </CardDescription>

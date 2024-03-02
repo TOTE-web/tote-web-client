@@ -17,6 +17,8 @@ import { z } from "zod"
 import Link from "next/link";
 import axios from 'axios';
 import { useRouter } from "next/navigation";
+import { useState } from "react";
+import { useToast } from "@/components/ui/use-toast";
 
 const formSchema = z.object({
   email: z.string().min(2, {
@@ -28,7 +30,9 @@ const formSchema = z.object({
 })
 
 const Login = () => {
+  const { toast } = useToast();
   const router = useRouter();
+  const [state, setState] = useState({ isLoading: false });
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -39,10 +43,14 @@ const Login = () => {
  
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     try {
+      setState((prev)=> ({ ...prev, isLoading: true }));
       await axios.post('/api/auth/login', values);
+      toast({ title: 'Logged In Successfully!!' });
       router.push('/dashboard');
-    } catch (error) {
-      console.log(error);
+    } catch (error: any) {
+      toast({ title: error.message || 'Unable to login', variant: 'destructive' });
+    } finally {
+      setState((prev)=> ({ ...prev, isLoading: false }));
     }
   }
 
@@ -76,7 +84,9 @@ const Login = () => {
               </FormItem>
             )}
           />
-          <Button type="submit" className="w-full text-xl py-6 my-4 bg-primary transition-all hover:rounded-full">Login</Button>
+          <Button type="submit" disabled={state.isLoading} className={` ${state.isLoading && 'cursor-not-allowed opacity-65'} w-full text-xl py-6 my-4 bg-primary transition-all hover:rounded-full`}>
+            {state.isLoading ? 'Logging in...' :  'Login'}
+          </Button>
           <div className="flex justify-between">
             <CardDescription className="text-black text-xs lg:text-base">
               Don{"'"}t have an account ? <Link className="text-primary" href={'/signup'}>Signup</Link>
