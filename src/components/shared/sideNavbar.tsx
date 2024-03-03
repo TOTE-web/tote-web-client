@@ -1,19 +1,22 @@
+"use client"
 import React from 'react'
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '../ui/accordion'
 import Image from 'next/image'
 import Link from 'next/link'
+import { Card } from '../ui/card'
+import { cn } from '@/lib/utils'
 
 const AccordionComponent = ({ title, iconPath, children, pathname } : { title: string, iconPath?: string, children: React.ReactNode, pathname: string } ) => {
   return (
     <Accordion type="single" collapsible>
       <AccordionItem value="item-1">
         <Link href={pathname}>
-          <AccordionTrigger className=''>
+          <AccordionTrigger>
             {iconPath && <Image src={iconPath} width={1000} height={0} alt={title} />}
             <span>{title}</span>
           </AccordionTrigger>
         </Link>
-        <AccordionContent>
+        <AccordionContent className='flex flex-col pl-2 gap-4'>
           {children}
         </AccordionContent>
       </AccordionItem>
@@ -62,7 +65,7 @@ const data = [
 
 const SideNavbar = ({ className }: { className: string }) => {
   return (
-    <nav className={className}>
+    <Card className={cn('rounded-none border-t-0 border-b-0 border-l-0 z-50 px-2 py-4 overflow-auto', className)}>
       {data.map(({ title, listItems, path }, idx)=> (
         <AccordionComponent title={title} pathname={path} key={idx}>
           {listItems.map((item, idx1)=> (
@@ -70,7 +73,7 @@ const SideNavbar = ({ className }: { className: string }) => {
           ))}
         </AccordionComponent>
       ))}
-    </nav>
+    </Card>
   )
 }
 

@@ -99,7 +99,7 @@ const ContactSection = () => {
                   </FormItem>
                 )}
               />
-              <Button type="submit" className='w-full p-6'>Send Message</Button>
+              <Button type="submit" className='w-full p-6 transition-all hover:rounded-full'>Send Message</Button>
             </form>
           </Form>
         </div>

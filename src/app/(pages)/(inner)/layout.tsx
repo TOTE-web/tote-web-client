@@ -1,6 +1,8 @@
 "use client"
 import SideNavbar from "@/components/shared/sideNavbar";
+import TopBar from "@/components/shared/topBar";
 import { InnerAppContext } from "@/context/appContext";
+import { cn } from "@/lib/utils";
 import { useCookies } from "next-client-cookies";
 import { useEffect, useState } from "react";
 
@@ -19,21 +21,17 @@ const InnerAppLayout = ({
   },[loginCookie]);
 
   return (
-    <InnerAppContext.Provider value={state}>
-      <div className="w-full h-full bg-white grid lg:grid-cols-[20%_80%] xl:grid-cols-[15%_85%]">
-        <div className="relative">
-          <SideNavbar className={`${!state.isSidebarOpened && '-translate-x-full'}`} />
-          <span
-            className="absolute right-0 top-40 cursor-pointer p-4 bg-primary text-white rounded-full"
-            onClick={()=> setState(prev => ({ ...prev, isSidebarOpened: !prev.isSidebarOpened }))}>
-            {state.isSidebarOpened ? '>' : '<'}
-          </span>
+    <div className="w-screen h-screen">
+      <InnerAppContext.Provider value={state}>
+        <TopBar className='h-[10%]' toggleSideBar={()=> setState(prev => ({ ...prev, isSidebarOpened: !prev.isSidebarOpened }))} />
+        <div className="w-full h-[90%] bg-white relative">
+          <SideNavbar className={`${!state.isSidebarOpened && '-translate-x-full'} absolute left-0 top-0 bottom-0 w-64 transition-all ease-linear`} />
+          <div className={cn("h-full overflow-auto transition-all ease-linear", state.isSidebarOpened ? 'ml-64': '')}>
+            {children}
+          </div>
         </div>
-        <div className="w-full">
-          {children}
-        </div>
-      </div>
-    </InnerAppContext.Provider>
+      </InnerAppContext.Provider>
+    </div>
   );
 }
 
