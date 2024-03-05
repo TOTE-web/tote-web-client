@@ -1,10 +1,6 @@
 import { NextResponse } from 'next/server'
 import { NextRequest } from 'next/server'
-
-const publicRoutes = [
-  '/login',
-  '/signup'
-]
+import { publicRoutes, getAllAvailablePaths } from '@/data/routes-handler';
  
 export const middleware = (request: NextRequest) => {
   const { pathname } = request.nextUrl;
@@ -16,23 +12,19 @@ export const middleware = (request: NextRequest) => {
     return;
   }
 
-  if (isPublicPath && token) {
-    return NextResponse.redirect(new URL('/', request.url));
-  }
-
   if (!isPublicPath && !token) {
     return NextResponse.redirect(new URL('/login', request.url));
   }
+
+  if (isPublicPath && token) { 
+    return NextResponse.redirect(new URL('/', request.url));
+  }
+  
 }
  
 export const config = {
   matcher: [
-    '/',
-    '/dashboard',
-    '/dashboard/:id*',
-    '/employee-management',
-    '/employee-management/:id*',
-    '/login',
-    '/signup'
+    ...publicRoutes,
+    ...getAllAvailablePaths()
   ]
 }

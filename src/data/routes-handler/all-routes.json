@@ -1,0 +1,94 @@
+{
+  "public": [
+    "/login",
+    "/signup"
+  ],
+  "inner": [
+    {
+      "path": "/",
+      "slugs": []
+    },
+    {
+      "path": "/dashboard",
+      "slugs": [
+        "/overview",
+        "/analytics",
+        "/notifications"
+      ]
+    },
+    {
+      "path": "/employee-management",
+      "slugs": [
+        "/directory",
+        "/add-new",
+        "/employee-profiles",
+        "/attendance-management",
+        "/leave-management"
+      ]
+    },
+    {
+      "path": "/recruitment",
+      "slugs": [
+        "/job-listings",
+        "/applicant-tracking",
+        "/interview-scheduling"
+      ]
+    },
+    {
+      "path": "/performance-management",
+      "slugs": [
+        "/goal-setting",
+        "/performance-reviews",
+        "/feedback-management"
+      ]
+    },
+    {
+      "path": "/training-and-development",
+      "slugs": [
+        "/training-programs",
+        "/skills-assessment",
+        "/certification-tracking"
+      ]
+    },
+    {
+      "path": "/payroll-management",
+      "slugs": [
+        "/salary-details",
+        "/payslip-generation",
+        "/tax-management"
+      ]
+    },
+    {
+      "path": "/benefits-administration",
+      "slugs": [
+        "/employee-benefits",
+        "/insurance",
+        "/retirement-plans"
+      ]
+    },
+    {
+      "path": "/time-tracking",
+      "slugs": [
+        "/time-logs",
+        "/timesheets",
+        "/overtime-management"
+      ]
+    },
+    {
+      "path": "/reports",
+      "slugs": [
+        "/employee-reports",
+        "/attendance-reports",
+        "/performance-reports"
+      ]
+    },
+    {
+      "path": "/settings",
+      "slugs": [
+        "/company-profile",
+        "/user-management",
+        "/preferences"
+      ]
+    }
+  ]
+}

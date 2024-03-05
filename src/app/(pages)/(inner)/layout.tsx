@@ -25,7 +25,7 @@ const InnerAppLayout = ({
       <InnerAppContext.Provider value={state}>
         <TopBar className='h-[10%]' toggleSideBar={()=> setState(prev => ({ ...prev, isSidebarOpened: !prev.isSidebarOpened }))} />
         <div className="w-full h-[90%] bg-white relative">
-          <SideNavbar className={`${!state.isSidebarOpened && '-translate-x-full'} absolute left-0 top-0 bottom-0 w-64 transition-all ease-linear`} />
+          <SideNavbar className={`${!state.isSidebarOpened && '-translate-x-full'} absolute left-0 top-0 bottom-0 w-auto transition-all ease-linear`} />
           <div className={cn("h-full overflow-auto transition-all ease-linear", state.isSidebarOpened ? 'ml-64': '')}>
             {children}
           </div>
