@@ -4,6 +4,7 @@ import { publicRoutes, getAllAvailablePaths } from '@/data/routes-handler';
  
 export const middleware = (request: NextRequest) => {
   const { pathname } = request.nextUrl;
+  console.log(publicRoutes);
   const isPublicPath = publicRoutes.includes(pathname);
 
   const token = request.cookies.get('token')?.value || '';

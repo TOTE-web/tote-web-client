@@ -5,19 +5,19 @@
   ],
   "inner": [
     {
-      "path": "/",
-      "slugs": []
-    },
-    {
-      "path": "/dashboard",
+      "title": "home",
       "slugs": [
-        "/overview",
-        "/analytics",
-        "/notifications"
+        "/"
       ]
     },
     {
-      "path": "/employee-management",
+      "title": "dashboard",
+      "slugs": [
+        "/dashboard"
+      ]
+    },
+    {
+      "title": "employee-management",
       "slugs": [
         "/directory",
         "/add-new",
@@ -27,7 +27,7 @@
       ]
     },
     {
-      "path": "/recruitment",
+      "title": "recruitment",
       "slugs": [
         "/job-listings",
         "/applicant-tracking",
@@ -35,7 +35,7 @@
       ]
     },
     {
-      "path": "/performance-management",
+      "title": "performance-management",
       "slugs": [
         "/goal-setting",
         "/performance-reviews",
@@ -43,7 +43,7 @@
       ]
     },
     {
-      "path": "/training-and-development",
+      "title": "training-and-development",
       "slugs": [
         "/training-programs",
         "/skills-assessment",
@@ -51,7 +51,7 @@
       ]
     },
     {
-      "path": "/payroll-management",
+      "title": "payroll-management",
       "slugs": [
         "/salary-details",
         "/payslip-generation",
@@ -59,7 +59,7 @@
       ]
     },
     {
-      "path": "/benefits-administration",
+      "title": "benefits-administration",
       "slugs": [
         "/employee-benefits",
         "/insurance",
@@ -67,7 +67,7 @@
       ]
     },
     {
-      "path": "/time-tracking",
+      "title": "time-tracking",
       "slugs": [
         "/time-logs",
         "/timesheets",
@@ -75,7 +75,7 @@
       ]
     },
     {
-      "path": "/reports",
+      "title": "reports",
       "slugs": [
         "/employee-reports",
         "/attendance-reports",
@@ -83,7 +83,7 @@
       ]
     },
     {
-      "path": "/settings",
+      "title": "settings",
       "slugs": [
         "/company-profile",
         "/user-management",

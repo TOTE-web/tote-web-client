@@ -1,18 +1,17 @@
 import { inner as innerRoutes, public as publicRoutes } from './all-routes.json';
 
-const getSlugsByParentPath = (parent: string = '/') => {
-  return innerRoutes.find((item) => item.path == parent)?.slugs;
+const getSlugsByParent = (parent: string = '') => {
+  return innerRoutes.find((item) => item.title == parent)?.slugs;
 }
 
-const getParentByPath = (parent: string = '/') => {
-  return innerRoutes.find((item) => item.path == parent);
+const getParentByPath = (parent: string = '') => {
+  return innerRoutes.find((item) => item.title == parent);
 }
 
 const getAllAvailablePaths = () => {
   return innerRoutes.reduce<string[]>((acc, item) => {
-    const modifiedSlugs = item.slugs.map((slug)=> item.path + slug);
-    return [...acc, item.path, ...modifiedSlugs];
+    return [...acc, ...item.slugs];
   }, []);
 }
 
-export { innerRoutes, publicRoutes, getSlugsByParentPath, getAllAvailablePaths, getParentByPath };
+export { innerRoutes, publicRoutes, getSlugsByParent, getAllAvailablePaths, getParentByPath };
