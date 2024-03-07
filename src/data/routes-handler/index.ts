@@ -1,4 +1,6 @@
-import { inner as innerRoutes, public as publicRoutes } from './all-routes.json';
+import allRoutes from './all-routes.json';
+
+const { inner : innerRoutes, public : publicRoutes } = allRoutes;
 
 const getSlugsByParent = (parent: string = '') => {
   return innerRoutes.find((item) => item.title == parent)?.slugs;
