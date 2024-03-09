@@ -1,0 +1,21 @@
+permissions: [
+  "viewDashboard",
+  "manageEmployees",
+  "manageDepartments",
+  "manageRolesAndPermissions",
+  "manageLeaveRequests",
+  "viewAttendanceReports",
+  "managePerformanceReviews",
+  "accessPayrollInformation",
+  "accessTrainingAndDevelopment",
+  "generateReports",
+  "manageAnnouncements",
+  "viewEmployeeDirectory",
+  "accessBenefitsAdministration",
+  "manageRecruitment",
+  "viewAnalytics"
+],
+
+roles: [
+  'Admin', 'Agent'
+]

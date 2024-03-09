@@ -8,7 +8,7 @@ connect();
 export const POST = async (request: NextRequest) => {
   try {
     const reqBody = await request.json();
-    const { username, email, password } = reqBody;
+    const { username, email, password, organizationName } = reqBody;
 
     // check if user exists
     const user = await User.findOne({ email });
@@ -21,7 +21,7 @@ export const POST = async (request: NextRequest) => {
     const salt = await bcrypt.genSalt(10);
     const hashedPassword = await bcrypt.hash(password, salt);
 
-    await User.create({ username, email, password: hashedPassword });
+    await User.create({ username, email, password: hashedPassword, organization_name: organizationName });
 
     return NextResponse.json({
       message: "user created successfully"

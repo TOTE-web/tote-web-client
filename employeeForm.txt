@@ -1,0 +1,54 @@
+  personalInformation: {
+    fullName: { type: String, required: true },
+    dateOfBirth: { type: Date, required: true },
+    gender: { type: String, enum: ['Male', 'Female', 'Other'], required: true },
+  },
+  contactInformation: {
+    phoneNumber: { type: String },
+    emailAddress: { type: String, required: true },
+    address: {
+      streetAddress: { type: String },
+      city: { type: String },
+      state: { type: String },
+      zipCode: { type: String }
+    },
+    emergencyContact: {
+      name: { type: String },
+      phoneNumber: { type: String }
+    }
+  },
+  employmentDetails: {
+    employeeID: { type: String, required: true },
+    jobTitle: { type: String, required: true },
+    department: { type: String, required: true },
+    manager: { type: mongoose.Schema.Types.ObjectId, ref: 'Employee' },
+    employmentType: { type: String, enum: ['Full-time', 'Part-time', 'Contract'], required: true },
+    startDate: { type: Date, required: true },
+    probationEndDate: { type: Date },
+    employmentStatus: { type: String, enum: ['Active', 'Inactive', 'On Leave'], default: 'Active' }
+  },
+  compensationInformation: {
+    salary: { type: Number, required: true },
+    payFrequency: { type: String, enum: ['Monthly', 'Bi-weekly'], required: true },
+    bankAccountDetails: {
+      bankName: { type: String },
+      accountNumber: { type: String }
+    },
+    benefitsEnrollment: {
+      healthInsurance: { type: Boolean, default: false },
+      retirementPlan: { type: Boolean, default: false }
+    }
+  },
+  taxInformation: {
+    taxIDNumber: { type: String, required: true },
+    filingStatus: { type: String },
+    withholdingAllowances: { type: Number }
+  },
+  // Add more fields as needed for performance, leave, attendance, etc.
+
+  employee: { type: mongoose.Schema.Types.ObjectId, ref: 'Employee', required: true }, // Reference to the employee
+  date: { type: Date, required: true }, // Date of the attendance record
+  status: { type: String, enum: ['Present', 'Absent', 'Late', 'Half-Day'], default: 'Present' }, // Attendance status
+  remarks: String, // Additional remarks or notes
+  createdAt: { type: Date, default: Date.now }, // Date when the attendance record was created
+  updatedAt: { type: Date, default: Date.now }, //

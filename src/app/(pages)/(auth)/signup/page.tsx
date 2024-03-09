@@ -27,6 +27,9 @@ const formSchema = z.object({
   email: z.string().min(2, {
     message: "Email must be at least 2 characters.",
   }),
+  organizationName: z.string().min(2, {
+    message: "Please provide a unique name"
+  }),
   password: z.string().min(8, {
     message: "Please enter a valid password"
   }),
@@ -44,6 +47,7 @@ const SignUp = () => {
     defaultValues: {
       username: "",
       email: "",
+      organizationName: "",
       password: "",
       confirmPassword: "",
     },
@@ -69,7 +73,7 @@ const SignUp = () => {
   return (
     <AuthComponent title="Create new account">
       <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="py-8 w-10/12 mx-auto">
+      <form onSubmit={form.handleSubmit(onSubmit)} className="py-8 w-10/12 h-full mx-auto">
           <FormField
             control={form.control}
             name="username"
@@ -77,7 +81,7 @@ const SignUp = () => {
               <FormItem className="mb-4">
                 <FormLabel className="text-base text-black font-normal">Username</FormLabel>
                 <FormControl>
-                  <Input placeholder="@example" type="text" {...field} />
+                  <Input placeholder="@example" type="text" {...field} className="placeholder:text-gray-400" />
                 </FormControl>
                 <FormMessage className="text-red-500 font-light" />
               </FormItem>
@@ -90,7 +94,20 @@ const SignUp = () => {
               <FormItem className="mb-4">
                 <FormLabel className="text-base text-black font-normal">Email</FormLabel>
                 <FormControl>
-                  <Input placeholder="example@gmail.com" {...field} />
+                  <Input placeholder="example@gmail.com" {...field} className="placeholder:text-gray-400" />
+                </FormControl>
+                <FormMessage className="text-red-500 font-light" />
+              </FormItem>
+            )}
+          />
+          <FormField
+            control={form.control}
+            name="organizationName"
+            render={({ field }) => (
+              <FormItem className="mb-4">
+                <FormLabel className="text-base text-black font-normal">Organization Name</FormLabel>
+                <FormControl>
+                  <Input placeholder="Eg: Company Name" {...field} className="placeholder:text-gray-400" />
                 </FormControl>
                 <FormMessage className="text-red-500 font-light" />
               </FormItem>
@@ -103,7 +120,7 @@ const SignUp = () => {
               <FormItem className="mb-4">
                 <FormLabel className="text-base text-black font-normal">Create Password</FormLabel>
                 <FormControl>
-                  <Input placeholder="••••••••" type="password" {...field} />
+                  <Input placeholder="••••••••" type="password" {...field} className="placeholder:text-gray-400" />
                 </FormControl>
                 <FormMessage className="text-red-500 font-light" />
               </FormItem>
@@ -116,7 +133,7 @@ const SignUp = () => {
               <FormItem className="mb-4">
                 <FormLabel className="text-base text-black font-normal">Confirm Password</FormLabel>
                 <FormControl>
-                  <Input placeholder="••••••••" type="password" {...field} />
+                  <Input placeholder="••••••••" type="password" {...field} className="placeholder:text-gray-400" />
                 </FormControl>
                 <FormMessage className="text-red-500 font-light" />
               </FormItem>

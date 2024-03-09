@@ -24,12 +24,22 @@ const userSchema = new mongoose.Schema({
     type: Boolean,
     default: false
   },
+  role_type: {
+    type: String,
+    default: 'Admin',
+    enum: ['Admin', 'Agent']
+  },
+  organization_name: {
+    type: String,
+    required: [true, 'Please provide a organization name'],
+    unique: true
+  },
   forgotPasswordToken: String,
   forgotPasswordTokenExpiry: Date,
   verifyToken: String,
   verifyTokenExpiry: Date,
 });
 
-const User = mongoose.models['hrms_users'] || mongoose.model("hrms_users", userSchema);
+const User = mongoose.models['Users'] || mongoose.model("Users", userSchema);
 
 export default User;
