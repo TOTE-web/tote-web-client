@@ -14,18 +14,14 @@ pnpm dev
 bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Required environments - 
 
-## Learn More
+Whole project -
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-To learn more about charts, take a look at the following resources:
-
-- [Recharts Documentation](https://recharts.org/en-US/examples/) - learn about recharts charts maker
+```bash
+TOKEN_SECRET = 6cWd1cCzX4snGUZ9safa
+MONGO_URL = mongodb://myUser:myPassword@remotehost:27017/mydatabase
+```
 
 ## Authors
 
