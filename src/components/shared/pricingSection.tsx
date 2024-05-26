@@ -10,7 +10,7 @@ type PriceCardTypes = {
   title: string,
   description: string,
   features: string[],
-  btnVariant: string,
+  btnVariant: any,
   badge?: string,
   highlightClass?: string
 }
@@ -69,7 +69,7 @@ const PriceCard = ({ topText, title, description, features, btnVariant, badge, h
         <h1 className='text-3xl font-semibold'>{title}</h1>
         <p className='text-base text-gray-400'>{description}</p>
       </div>
-      <Button variant={btnVariant || 'default'} className='my-4'>Get Started</Button>
+      <Button variant={btnVariant} className='my-4'>Get Started</Button>
       <div className='flex flex-col gap-3 text-gray-500'>
         {features.map((item, idx)=> (
           <div key={idx} className='flex gap-3 items-center'>

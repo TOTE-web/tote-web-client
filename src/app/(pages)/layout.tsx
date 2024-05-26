@@ -1,6 +1,7 @@
 "use client"
 import { ThemeContext } from "@/context/appContext";
 import { useState } from "react";
+import "@/app/globals.css";
 
 const AppLayout = ({
   children,

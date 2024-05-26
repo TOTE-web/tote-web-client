@@ -23,40 +23,5 @@ export const middleware = (request: NextRequest) => {
 }
  
 export const config = {
-  matcher: [
-    "/login",
-    "/signup",
-    "/",
-    "/dashboard",
-    "/directory",
-    "/add-new",
-    "/employee-profiles",
-    "/attendance-management",
-    "/leave-management",
-    "/job-listings",
-    "/applicant-tracking",
-    "/interview-scheduling",
-    "/goal-setting",
-    "/performance-reviews",
-    "/feedback-management",
-    "/training-programs",
-    "/skills-assessment",
-    "/certification-tracking",
-    "/salary-details",
-    "/payslip-generation",
-    "/tax-management",
-    "/employee-benefits",
-    "/insurance",
-    "/retirement-plans",
-    "/time-logs",
-    "/timesheets",
-    "/overtime-management",
-    "/employee-reports",
-    "/attendance-reports",
-    "/performance-reports",
-    "/company-profile",
-    "/user-management",
-    "/preferences",
-    "/profile"
-  ]
+  matcher: []
 }
