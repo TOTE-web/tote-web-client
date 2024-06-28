@@ -1,9 +1,7 @@
-import { connect } from "@/dbConfig/connect";
+import { sequelize } from "@/dbConfig/connect";
 import User from "@/models/userModel";
 import { NextRequest, NextResponse } from "next/server";
 import bcrypt from 'bcrypt';
-
-connect();
 
 export const POST = async (request: NextRequest) => {
   try {

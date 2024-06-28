@@ -1,11 +1,11 @@
-import mongoose from 'mongoose';
+import { Sequelize } from 'sequelize';
 
-export const connect = async () => {
-  try {
-    await mongoose.connect(process.env.MONGO_URL!);
+const sequelizeInstance = new Sequelize(process.env.PG_DATABASE_URL!);
 
-    console.log("we have successfully connected to database");
-  } catch (error) {
-    console.log("something went wrong ", error);
-  }
-}
+sequelizeInstance.authenticate().then(()=> {
+  console.log("Db connected successfully");
+}).catch((error: any)=> {
+  console.log(error);
+});
+
+export const sequelize = sequelizeInstance;

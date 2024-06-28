@@ -1,25 +1,38 @@
-import { Schema, model } from 'mongoose';
+import { DataTypes } from "sequelize";
+import { sequelize } from "@/dbConfig/connect";
 
-const parentCollectionName = 'rolesAndPermissions';
+export const Role = sequelize.define("Roles", {
+  id: {
+    type: DataTypes.BIGINT,
+    autoIncrement: true,
+    primaryKey: true
+  },
+  role_type: {
+    type: DataTypes.ENUM('AGENT', 'ADMIN', 'MARKETING', 'SALES'),
+    allowNull: false
+  }
+});
 
-const permissionsSchema = new Schema({
+export const Permission = sequelize.define("Permissions", {
+  id: {
+    type: DataTypes.BIGINT,
+    autoIncrement: true,
+    primaryKey: true
+  },
   name: {
-    type: String,
+    type: DataTypes.STRING,
     unique: true,
-    required: true
+    allowNull: false,
+  },
+  default_role_type_id: {
+    type: DataTypes.INTEGER,
+    references: {
+      model: 'Roles',
+      key: 'id'
+    }
+  },
+  actions: {
+    type: DataTypes.JSON,
+    allowNull: true
   }
 });
-
-const Permissions = model(`${parentCollectionName}/permissions`, permissionsSchema);
-
-const rolesSchema = new Schema({
-  name: {
-    type: String,
-    unique: true, 
-    required: true
-  }
-});
-
-const Roles = model(`${parentCollectionName}/roles`, rolesSchema);
-
-export { Permissions, Roles };

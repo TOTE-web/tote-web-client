@@ -1,45 +1,40 @@
-import mongoose from 'mongoose';
+import { DataTypes } from "sequelize";
+import { sequelize } from "@/dbConfig/connect";
 
-const userSchema = new mongoose.Schema({
+const User = sequelize.define('Users', {
+  id: {
+    type: DataTypes.BIGINT,
+    autoIncrement: true,
+    primaryKey: true
+  },
   username: {
-    type: String,
-    required: [true, "please provide a username"],
-    unique: true
+    type: DataTypes.STRING,
+    allowNull: false
   },
   email: {
-    type: String,
-    required: [true, "please provide a email"],
-    unique: true
+    type: DataTypes.STRING,
+    unique: true,
+    allowNull: false
   },
   password: {
-    type: String,
-    required: [true, "please provide a password"],
-    unique: true
+    type: DataTypes.STRING,
+    allowNull: false
   },
   isVerified: {
-    type: Boolean,
-    default: false
+    type: DataTypes.BOOLEAN,
+    defaultValue: false
   },
-  isAdmin: {
-    type: Boolean,
-    default: false
-  },
-  role_type: {
-    type: String,
-    default: 'Admin',
-    enum: ['Admin', 'Agent']
+  role_type_id: {
+    type: DataTypes.INTEGER,
+    references: {
+      model: 'Roles',
+      key: 'id'
+    }
   },
   organization_name: {
-    type: String,
-    required: [true, 'Please provide a organization name'],
-    unique: true
-  },
-  forgotPasswordToken: String,
-  forgotPasswordTokenExpiry: Date,
-  verifyToken: String,
-  verifyTokenExpiry: Date,
+    type: DataTypes.STRING,
+    allowNull: false
+  }
 });
-
-const User = mongoose.models['Users'] || mongoose.model("Users", userSchema);
 
 export default User;
